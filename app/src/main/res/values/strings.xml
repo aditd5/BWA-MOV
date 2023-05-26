@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">BWA MOV</string>
+    <string name="title_activity_on_boarding">OnBoardingActivity</string>
+    <string name="lewati_perkenalan">LEWATI PERKENALAN</string>
+    <string name="lanjutkan">LANJUTKAN</string>
+    <string name="now_playing">Now Playing</string>
+    <string name="now_playing_desc">Lebih mudah untuk mengetahui\nfilm yang sedang tampil</string>
+    <string name="pre_sale">Pre Sale</string>
+    <string name="presale_desc">Tidak perlu khawatir\nketinggalan update film terbaru</string>
+    <string name="cashless">Cashless</string>
+    <string name="cashless_desc">Gunakan e-wallet untuk\ntransaksi tiket nonton</string>
+    <string name="sign_in">Sign In</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="name">Name</string>
+    <string name="email_address">Email Address</string>
+    <string name="upload_nanti">UPLOAD NANTI</string>
+    <string name="photo">Photo</string>
+    <string name="welcome_text">Welcome,\nAditd5</string>
+    <string name="simpan_lanjutkan"><![CDATA[SIMPAN & LANJUTKAN]]></string>
+    <string name="user_name">Aditd5</string>
+    <string name="wallet">IDR 275.000</string>
+    <string name="coming_soon">Coming Soon</string>
+</resources>
