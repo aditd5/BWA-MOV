@@ -22,4 +22,21 @@
     <string name="user_name">Aditd5</string>
     <string name="wallet">IDR 275.000</string>
     <string name="coming_soon">Coming Soon</string>
+    <string name="fast_x">Fast X</string>
+    <string name="action_adventure">Action,Adventure</string>
+    <string name="storyboard_fastx">The end of the road begins. Fast X, the tenth film in the Fast and Furious Saga, launches the final chapters of one of cinema\'s most storied and popular global franchises, now in its third decade and still going strong with the same core cast and characters as when it began. Over many missions and against impossible odds, Dom Toretto (Vin Diesel) and his family have outsmarted, out-nerved and outdriven every foe in their path.</string>
+    <string name="storyboard">Storyboard</string>
+    <string name="who_s_played">Who’s Played</string>
+    <string name="beli_tiket">BELI TIKET</string>
+    <string name="pilih_kursi">Pilih Kursi</string>
+    <string name="layar_bioskop">Layar Bioskop</string>
+    <string name="a">A</string>
+    <string name="b">B</string>
+    <string name="c">C</string>
+    <string name="d">D</string>
+    <string name="selected">Selected</string>
+    <string name="empty">Empty</string>
+    <string name="booked">Booked</string>
+    <string name="bayar_sekarang">BAYAR SEKARANG</string>
+    <string name="batalkan">BATALKAN</string>
 </resources>
