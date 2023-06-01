@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "515618040443",
+    "firebase_url": "https://bwa-mov-aditd5-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "bwa-mov-aditd5",
+    "storage_bucket": "bwa-mov-aditd5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:515618040443:android:d1bcb54cae8f94df0450de",
+        "android_client_info": {
+          "package_name": "com.aditd5.bwamov"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "515618040443-kl9uged02tsgktarq36m5a951052q403.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCiDx84R9ygy90nHi8aBkMo2tNyhy4dz8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "515618040443-kl9uged02tsgktarq36m5a951052q403.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

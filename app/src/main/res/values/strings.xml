@@ -39,4 +39,20 @@
     <string name="booked">Booked</string>
     <string name="bayar_sekarang">BAYAR SEKARANG</string>
     <string name="batalkan">BATALKAN</string>
+    <string name="items">Items</string>
+    <string name="when">When</string>
+    <string name="date_and_time">Date and Time</string>
+    <string name="cinema">Cinema</string>
+    <string name="seat_c1">Seat C1</string>
+    <string name="seat_c2">Seat C2</string>
+    <string name="total_harus_dibayar">Total Harus Dibayar</string>
+    <string name="e_wallet">E-Wallet</string>
+    <string name="total_balance">Total Balance</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="simpan_data_baru">SIMPAN DATA BARU</string>
+    <string name="my_wallet">My Wallet</string>
+    <string name="saldo_tersedia">Saldo Tersedia</string>
+    <string name="daftar_transaksi">Daftar Transaksi</string>
+    <string name="history">History</string>
+    <string name="_747_movies">747 Movies</string>
 </resources>
