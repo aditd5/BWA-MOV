@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".SignUpActivity">
+    tools:context=".sign.signup.SignUpActivity">
 
     <ImageView
         android:id="@+id/imageView3"
@@ -34,7 +34,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView37"
+        android:id="@+id/tv_welcome"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -65,7 +65,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView37" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_welcome" />
 
     <TextView
         android:id="@+id/textView3"
@@ -196,6 +196,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:srcCompat="@drawable/user_pic" />
+        app:srcCompat="@drawable/ic_user_pic" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.aditd5.bwamov.R
-import com.aditd5.bwamov.SignInActivity
+import com.aditd5.bwamov.sign.signin.SignInActivity
 import com.aditd5.bwamov.utils.Preferences
 
 class OnBoardingOneActivity : AppCompatActivity() {
@@ -23,7 +23,7 @@ class OnBoardingOneActivity : AppCompatActivity() {
         preferences = Preferences(this)
 
         if (preferences.getValues("onboarding").equals("1")) {
-            var intent = Intent(this@OnBoardingOneActivity,SignInActivity::class.java)
+            var intent = Intent(this@OnBoardingOneActivity, SignInActivity::class.java)
             startActivity(intent)
         }
 
@@ -31,7 +31,7 @@ class OnBoardingOneActivity : AppCompatActivity() {
             preferences.setValues("onboarding","1")
             finishAffinity()
 
-            var intent = Intent(this@OnBoardingOneActivity,SignInActivity::class.java)
+            var intent = Intent(this@OnBoardingOneActivity, SignInActivity::class.java)
             startActivity(intent)
         }
 

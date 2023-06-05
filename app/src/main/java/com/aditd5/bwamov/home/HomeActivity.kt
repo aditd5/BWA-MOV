@@ -1,7 +1,8 @@
-package com.aditd5.bwamov
+package com.aditd5.bwamov.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.aditd5.bwamov.R
 
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

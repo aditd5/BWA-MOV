@@ -1,4 +1,4 @@
-package com.aditd5.bwamov
+package com.aditd5.bwamov.sign.signin
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,14 +6,15 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.aditd5.bwamov.home.HomeActivity
+import com.aditd5.bwamov.R
+import com.aditd5.bwamov.sign.signup.SignUpActivity
 import com.aditd5.bwamov.utils.Preferences
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
 
 class SignInActivity : AppCompatActivity() {
 
@@ -39,7 +40,7 @@ class SignInActivity : AppCompatActivity() {
         if (preferences.getValues("status").equals("1")){
             finishAffinity()
 
-            var goHome = Intent(this@SignInActivity,HomeActivity::class.java)
+            var goHome = Intent(this@SignInActivity, HomeActivity::class.java)
             startActivity(goHome)
         }
 
@@ -59,7 +60,7 @@ class SignInActivity : AppCompatActivity() {
         }
 
         btnSignup.setOnClickListener {
-            var signup = Intent(this@SignInActivity,SignUpActivity::class.java)
+            var signup = Intent(this@SignInActivity, SignUpActivity::class.java)
             startActivity(signup)
         }
     }
@@ -81,7 +82,7 @@ class SignInActivity : AppCompatActivity() {
                         preferences.setValues("saldo",user.saldo.toString())
                         preferences.setValues("status","1")
 
-                        var intent = Intent(this@SignInActivity,HomeActivity::class.java)
+                        var intent = Intent(this@SignInActivity, HomeActivity::class.java)
                         startActivity(intent)
                     } else {
                         Toast.makeText(this@SignInActivity,"Password anda salah",Toast.LENGTH_LONG).show()

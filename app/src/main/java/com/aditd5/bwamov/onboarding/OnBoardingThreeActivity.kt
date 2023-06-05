@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.aditd5.bwamov.R
-import com.aditd5.bwamov.SignInActivity
+import com.aditd5.bwamov.sign.signin.SignInActivity
 
 class OnBoardingThreeActivity : AppCompatActivity() {
 
@@ -17,7 +17,7 @@ class OnBoardingThreeActivity : AppCompatActivity() {
         btnContinue = findViewById(R.id.btnContinueTe)
 
         btnContinue.setOnClickListener {
-            startActivity(Intent(this@OnBoardingThreeActivity,SignInActivity::class.java))
+            startActivity(Intent(this@OnBoardingThreeActivity, SignInActivity::class.java))
             finishAffinity()
         }
     }
