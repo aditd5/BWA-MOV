@@ -68,7 +68,7 @@ class SignUpActivity : AppCompatActivity() {
         var user = User()
         user.username = iUsername
         user.password = iPassword
-        user.nama = iName
+        user.name = iName
         user.email = iEmail
 
         if (iUsername != null) {
@@ -83,7 +83,7 @@ class SignUpActivity : AppCompatActivity() {
                 if (user == null) {
                     mFirebaseDatabaseReference.child(iUsername).setValue(data)
 
-                    var intent = Intent(this@SignUpActivity, SignUpPhotoscreenActivity::class.java).putExtra("nama", data.nama)
+                    var intent = Intent(this@SignUpActivity, SignUpPhotoscreenActivity::class.java).putExtra("name", data.name)
                     startActivity(intent)
                 } else if (user != null) {
                     Toast.makeText(this@SignUpActivity,"Username sudah digunakan",Toast.LENGTH_SHORT).show()

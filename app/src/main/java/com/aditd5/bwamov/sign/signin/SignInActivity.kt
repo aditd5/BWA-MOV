@@ -75,11 +75,11 @@ class SignInActivity : AppCompatActivity() {
                 } else {
                     if (user.password.equals(iPassword)) {
 
-                        preferences.setValues("nama",user.nama.toString())
+                        preferences.setValues("name",user.name.toString())
                         preferences.setValues("user",user.username.toString())
                         preferences.setValues("url",user.url.toString())
                         preferences.setValues("email",user.email.toString())
-                        preferences.setValues("saldo",user.saldo.toString())
+                        preferences.setValues("balance",user.balance.toString())
                         preferences.setValues("status","1")
 
                         var intent = Intent(this@SignInActivity, HomeActivity::class.java)
