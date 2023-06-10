@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.Toast
 import com.aditd5.bwamov.R
 import com.aditd5.bwamov.sign.signin.User
+import com.aditd5.bwamov.utils.Preferences
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -26,6 +27,8 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var mFirebaseInstance : FirebaseDatabase
     private lateinit var mDatabase: DatabaseReference
 
+    private lateinit var preferences: Preferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
@@ -39,6 +42,8 @@ class SignUpActivity : AppCompatActivity() {
         mFirebaseInstance = FirebaseDatabase.getInstance()
         mDatabase = FirebaseDatabase.getInstance().getReference()
         mFirebaseDatabaseReference = mFirebaseInstance.getReference("User")
+
+        preferences = Preferences(this)
 
         btnSignup.setOnClickListener {
             val iUsername = etUsername.text.toString()
@@ -77,15 +82,23 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun checkingUsername(iUsername: String, data: User) {
-        mFirebaseDatabaseReference.child(iUsername).addValueEventListener(object : ValueEventListener{
+        mFirebaseDatabaseReference.child(iUsername).addListenerForSingleValueEvent(object : ValueEventListener{
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                var user = dataSnapshot.getValue(User::class.java)
+                val user = dataSnapshot.getValue(User::class.java)
                 if (user == null) {
                     mFirebaseDatabaseReference.child(iUsername).setValue(data)
 
-                    var intent = Intent(this@SignUpActivity, SignUpPhotoscreenActivity::class.java).putExtra("name", data.name)
+                    preferences.setValues("name", data.name.toString())
+                    preferences.setValues("username", data.username.toString())
+                    preferences.setValues("balance", "")
+                    preferences.setValues("url", "")
+                    preferences.setValues("email", data.email.toString())
+                    preferences.setValues("status", "1")
+
+                    val intent = Intent(this@SignUpActivity,
+                        SignUpPhotoscreenActivity::class.java).putExtra("data", data)
                     startActivity(intent)
-                } else if (user != null) {
+                } else {
                     Toast.makeText(this@SignUpActivity,"Username sudah digunakan",Toast.LENGTH_SHORT).show()
                 }
             }

@@ -13,10 +13,16 @@ import android.widget.TextView
 import android.widget.Toast
 import com.aditd5.bwamov.home.HomeActivity
 import com.aditd5.bwamov.R
+import com.aditd5.bwamov.sign.signin.User
 import com.aditd5.bwamov.utils.Preferences
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.github.dhaval2404.imagepicker.ImagePicker
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.karumi.dexter.PermissionToken
@@ -38,9 +44,13 @@ class SignUpPhotoscreenActivity : AppCompatActivity(),PermissionListener {
     var statusAdd:Boolean = false
     private lateinit var filePath: Uri
 
+    private lateinit var user: User
     private lateinit var storage: FirebaseStorage
     private lateinit var storageReference: StorageReference
     private lateinit var preferences: Preferences
+
+    private lateinit var mFirebaseDatabase: DatabaseReference
+    private lateinit var mFirebaseInstance: FirebaseDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,7 +66,10 @@ class SignUpPhotoscreenActivity : AppCompatActivity(),PermissionListener {
         storage = FirebaseStorage.getInstance()
         storageReference = storage.getReference()
 
-        tvWelcome.text = "Selamat Datang\n" + intent.getStringExtra("nama")
+        mFirebaseInstance = FirebaseDatabase.getInstance()
+        mFirebaseDatabase = mFirebaseInstance.getReference("User")
+
+        tvWelcome.text = "Selamat Datang\n" + intent.getStringExtra("name")
 
         btnUpload.setOnClickListener {
             if (statusAdd) {
@@ -89,7 +102,7 @@ class SignUpPhotoscreenActivity : AppCompatActivity(),PermissionListener {
                         Toast.makeText(this,"Uploaded",Toast.LENGTH_LONG).show()
 
                         ref.downloadUrl.addOnSuccessListener {
-                            preferences.setValues("url", it.toString())
+                            saveToFirebase(it.toString())
                         }
                         finishAffinity()
                         var intent = Intent(this@SignUpPhotoscreenActivity, HomeActivity::class.java)
@@ -114,6 +127,33 @@ class SignUpPhotoscreenActivity : AppCompatActivity(),PermissionListener {
             var intent = Intent(this@SignUpPhotoscreenActivity, HomeActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun saveToFirebase(url: String) {
+        mFirebaseDatabase.child(user.username!!).addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+
+                user.url = url
+                mFirebaseDatabase.child(user.username!!).setValue(user)
+
+                preferences.setValues("name", user.name.toString())
+                preferences.setValues("username", user.username.toString())
+                preferences.setValues("balance", "")
+                preferences.setValues("url", "")
+                preferences.setValues("email", user.email.toString())
+                preferences.setValues("status", "1")
+                preferences.setValues("url", url)
+
+                finishAffinity()
+                val intent = Intent(this@SignUpPhotoscreenActivity,
+                HomeActivity::class.java)
+                startActivity(intent)
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(this@SignUpPhotoscreenActivity,""+error,Toast.LENGTH_LONG).show()
+            }
+        })
     }
 
     override fun onPermissionGranted(response: PermissionGrantedResponse?) {
