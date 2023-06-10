@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.aditd5.bwamov.R
 import com.aditd5.bwamov.model.Film
+import com.aditd5.bwamov.utils.Preferences
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.firebase.database.DataSnapshot
@@ -60,7 +61,7 @@ class HomeFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        preferences = com.aditd5.bwamov.utils.Preferences(requireActivity().applicationContext)
+        preferences = Preferences(requireActivity().applicationContext)
         mDatabase = FirebaseDatabase.getInstance().getReference("Film")
 
         val tvName = view?.findViewById<TextView>(R.id.tv_name)
@@ -73,17 +74,17 @@ class HomeFragment : Fragment() {
         if (!preferences.getValues("balance").equals("")) {
             currency(preferences.getValues("balance")!!.toDouble(), tvBalance!!)
         }
-        if (ivProfile != null) {
+//        if (ivProfile != null) {
             Glide.with(this)
                 .load(preferences.getValues("url"))
                 .apply(RequestOptions.circleCropTransform())
-                .into(ivProfile)
+                .into(ivProfile!!)
 
             rvNowPlaying?.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
             rvCommingSoon?.layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
 
             getData()
-        }
+//        }
     }
 
     private fun getData() {
